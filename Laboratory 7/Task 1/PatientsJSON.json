@@ -1,0 +1,59 @@
+[
+  {"id": 1,
+    "first_name": "Anton",
+    "last_name": "Jeltiy",
+    "patronymic": "Andreevich",
+    "birth_date": "1999-08-14",
+    "policy": "1234567891234567",
+    "tests": [
+      {
+        "date": "2021-09-20",
+        "type": "lgG",
+        "precision": "quantitative",
+        "laboratory_id": 1,
+        "result": "negative"
+      }
+      ]
+  },
+
+  {"id": 2,
+    "first_name": "Andrey",
+    "last_name": "Zeleniy",
+    "patronymic": "Andreevich",
+    "birth_date": "2002-09-23",
+    "policy": "1234566591234567",
+    "tests": [
+      {
+        "date": "2021-09-23",
+        "type": "lgG",
+        "precision": "quantitative",
+        "laboratory_id": 1,
+        "result": "positive"
+      },
+      {
+        "date": "2021-09-23",
+        "type": "lgM",
+        "precision": "quantitative",
+        "laboratory_id": 1,
+        "result": "positive"
+      }
+    ]
+  },
+
+  {"id": 3,
+    "first_name": "Evgeniy",
+    "last_name": "Orangeviy",
+    "patronymic": "Andreevich",
+    "birth_date": "2003-02-15",
+    "policy": "1234567891234567",
+    "tests": [
+      {
+        "date": "2021-09-01",
+        "type": "lgM",
+        "precision": "qualitative",
+        "laboratory_id": 2,
+        "result": "positive"
+      }
+    ]
+  }
+]

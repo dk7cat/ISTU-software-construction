@@ -1,0 +1,4 @@
+titleName
+authorName1, authorName2
+contentName
+hashCode

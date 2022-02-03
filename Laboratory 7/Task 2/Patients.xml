@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patients xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance">
+    <patient id="1">
+        <first_name>Anton</first_name>
+        <last_name>Jeltiy</last_name>
+        <patronymic>Andreevich</patronymic>
+        <birth_date>1999-08-14</birth_date>
+        <policy>1234567891234567</policy>
+    </patient>
+
+    <patient id="2">
+        <first_name>Andrey</first_name>
+        <last_name>Zeleniy</last_name>
+        <patronymic>Andreevich</patronymic>
+        <birth_date>2002-10-22</birth_date>
+        <policy>1234566591234567</policy>
+    </patient>
+
+    <patient id="3">
+        <first_name>Evgeniy</first_name>
+        <last_name>Orangeviy</last_name>
+        <patronymic>Andreevich</patronymic>
+        <birth_date>2003-02-15</birth_date>
+        <policy>1234567891234567</policy>
+    </patient>
+</patients>
