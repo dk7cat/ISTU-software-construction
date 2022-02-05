@@ -2,20 +2,25 @@ import java.io.File;
 import java.io.IOException;
 
 public abstract class ImprovedCompiler {
-
-    public void compile(File file) throws IOException {
-        buildLexemeTable(file);
-        buildIdentifierTable(file);
-        buildDsr(file);
-        buildTriad(file);
-        optimize(file);
-        buildObjectCode(file);
+//  Произведение полного цикла обработки кода
+    public void compile(String code) {
+        buildLexemeTable(code);
+        buildIdentifierTable(code);
+        buildDsr(code);
+        buildTriad(code);
+        optimize(code);
+        buildObjectCode(code);
     }
-
-    public void buildLexemeTable(File file) {}
-    public void buildIdentifierTable(File file) {}
-    public void buildDsr(File file) {}
-    public void buildTriad(File file) {}
-    public void optimize(File file) {}
-    public void buildObjectCode(File file) {}
+//    Построение таблицы лексем
+    public void buildLexemeTable(String code) {}
+//    Построение таблицы идентификаторов
+    public void buildIdentifierTable(String code) {}
+//    Построение ДСР
+    public void buildDsr(String code) {}
+    //    Построение триад
+    public void buildTriad(String code) {}
+//    Оптимизация
+    public void optimize(String code) {}
+//    Построение обьектного кода
+    public void buildObjectCode(String code) {}
 }

@@ -11,6 +11,7 @@ import java.io.IOException;
 public class PatientValidator {
 
     public static void validate (final String xmlFile, final String xsdFile) {
+//        Проверка входных данных
         if (xmlFile == null || xmlFile.isEmpty()) {
             System.out.println("ERROR: Path/name of XML to be validated cannot be null.");
             return;
@@ -23,10 +24,12 @@ public class PatientValidator {
 
         try
         {
+//            Создаем схему из xsd
             final Schema schema = schemaFactory.newSchema(new File(xsdFile));
             final Validator validator = schema.newValidator();
             System.out.println("Validating " + xmlFile + " against XSD "
                     + xsdFile + "...");
+//            Производим валидацию
             validator.validate(new StreamSource(new File(xmlFile)));
         }
         catch (IOException | SAXException exception)

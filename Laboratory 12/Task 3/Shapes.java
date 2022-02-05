@@ -1,3 +1,5 @@
+// Класс реализующие интерфейс фигуры
+
 class OShape implements Shape {
     String name = "O";
 

@@ -1,5 +1,5 @@
 public class NormalShapeFactory implements ShapeFactory {
-
+// Класс создающий обычные фигуры по заданному типу фигуры
     @Override
     public Shape createShape(ShapeClass shapeClass) {
         switch (shapeClass) {

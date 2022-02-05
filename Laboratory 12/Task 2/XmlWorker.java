@@ -19,7 +19,7 @@ public class XmlWorker {
     DocumentBuilder db;
     Document dom;
     Element root;
-
+//  Инстанцирование обьектов для создания xml файла
     public XmlWorker() throws ParserConfigurationException {
         dbf = DocumentBuilderFactory.newInstance();
         db = dbf.newDocumentBuilder();
@@ -27,26 +27,26 @@ public class XmlWorker {
 
         root = dom.createElement("article");
     }
-
+//  Запись всех частей статьи в hashmap
     public void readArticle(ArrayList<String> articleList) {
         readArticleTitle(articleList);
         readArticleAuthors(articleList);
         readArticleContent(articleList);
         readArticleHash(articleList);
     }
-
+// Запись заголовка
     public void readArticleTitle(ArrayList<String> articleList) {
         article.put("title", articleList.get(0));
     }
-
+// Запись авторов
     public void readArticleAuthors(ArrayList<String> articleList) {
         article.put("authors", articleList.get(1));
     }
-
+// Запись содержания
     public void readArticleContent(ArrayList<String> articleList) {
         article.put("content", articleList.get(2));
     }
-
+// Запись хэша
     public void readArticleHash(ArrayList<String> articleList) {
         if (Utility.checkHash(articleList.get(3))) {
             article.put("hash", articleList.get(3));
@@ -54,7 +54,7 @@ public class XmlWorker {
         else System.out.println("Hash is incorrect!");
 
     }
-
+// Запись статьи в xml файл
     public void writeToXml() {
         for (String element: article.keySet()) {
             Element el = dom.createElement(element);
@@ -62,7 +62,7 @@ public class XmlWorker {
             root.appendChild(el);
         }
     }
-
+// Сохранение xml файла
     public void saveXml(String xmlPath) throws TransformerException, FileNotFoundException {
         dom.appendChild(root);
 

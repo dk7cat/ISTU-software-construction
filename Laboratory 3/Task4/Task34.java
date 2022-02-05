@@ -13,17 +13,20 @@ public class Task34 {
         String path = "Laboratory 3/Files/task34.txt";
         String newPath = "Laboratory 3/Files/task34_new.txt";
         Pattern pattern = Pattern.compile("\\s");
+//        Создаем обьект для чтения из файла
         try (FileReader reader = new FileReader(path)) {
 
             StringBuilder string = new StringBuilder();
+//             Создаем обьект для записи в файл
             try (FileWriter writer = new FileWriter(newPath)) {
 
                 int symbol;
+//                Читаем по символьно
                 while ((symbol = reader.read()) != -1) {
 
                     Matcher matcher = pattern.matcher(String.valueOf((char) symbol));
                     if (matcher.find()) {
-
+//                      Если находим строку шаблон, то записываем
                         if (patternWord.equals(string.toString())) {
 
                             writer.write(string+" ");
@@ -36,6 +39,7 @@ public class Task34 {
                     }
                     string.append((char) symbol);
                 }
+//                Если находим строку шаблон, то записываем
                 if (patternWord.equals(string.toString())) {
 
                     writer.write(string.toString());

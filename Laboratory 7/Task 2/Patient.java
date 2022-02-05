@@ -1,5 +1,5 @@
 import java.util.Date;
-
+// POJO
 public class Patient {
 
     int id;

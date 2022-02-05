@@ -6,37 +6,37 @@ import java.io.IOException;
 public class ImprovedRCompiler extends ImprovedCompiler{
 
     @Override
-    public void compile(File file) throws IOException {
-        super.compile(file);
+    public void compile(String code) {
+        super.compile(code);
     }
 
     @Override
-    public void buildLexemeTable(File file) {
+    public void buildLexemeTable(String code) {
         System.out.println("Building R lexeme table");
     }
 
     @Override
-    public void buildIdentifierTable(File file) {
+    public void buildIdentifierTable(String code) {
         System.out.println("Building R identifier table");
     }
 
     @Override
-    public void buildDsr(File file) {
+    public void buildDsr(String code) {
         System.out.println("Building R DSR");
     }
 
     @Override
-    public void buildTriad(File file) {
+    public void buildTriad(String code) {
         System.out.println("Building R Triad");
     }
 
     @Override
-    public void optimize(File file) {
+    public void optimize(String code) {
         System.out.println("Optimizing R");
     }
 
     @Override
-    public void buildObjectCode(File file) {
+    public void buildObjectCode(String code) {
         System.out.println("Building R object code");
     }
 }

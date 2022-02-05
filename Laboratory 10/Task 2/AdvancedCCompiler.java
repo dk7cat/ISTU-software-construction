@@ -3,7 +3,7 @@ import java.io.IOException;
 
 public class AdvancedCCompiler extends AdvancedCompiler {
     @Override
-    public void compile(String code) throws IOException {
+    public void compile(String code) {
         super.compile(code);
     }
 

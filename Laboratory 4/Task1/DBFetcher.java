@@ -18,7 +18,9 @@ public class DBFetcher {
         HashMap<String, Integer> result = new HashMap<>();
         PreparedStatement preparedStatement = this.connection.prepareStatement(query);
         preparedStatement.setString(1, day);
+//        Получаем первую запись
         ResultSet resultSet = preparedStatement.executeQuery();
+//        Записываем полученный данные в HashMap
         while (resultSet.next()) {
             result.put("id", resultSet.getInt("id"));
             result.put("id_teacher", resultSet.getInt("id_teacher"));
@@ -43,9 +45,9 @@ public class DBFetcher {
         PreparedStatement preparedStatement = this.connection.prepareStatement(query);
         preparedStatement.setString(1, day);
         preparedStatement.setString(2, audience);
-
+//        Получаем учителя по дню и аудитории
         ResultSet resultSet = preparedStatement.executeQuery();
-
+//          Сохраняем полученные данные и выводим
         while (resultSet.next()) {
             String firstName = resultSet.getString("first_name");
             String lastName = resultSet.getString("last_name");
@@ -64,9 +66,9 @@ public class DBFetcher {
 
         PreparedStatement preparedStatement = this.connection.prepareStatement(query);
         preparedStatement.setString(1, day);
-
+//        Получаем учителя по выходному дню
         ResultSet resultSet = preparedStatement.executeQuery();
-
+//          Сохраняем полученные данные и выводим
         while (resultSet.next()) {
             String firstName = resultSet.getString("first_name");
             String lastName = resultSet.getString("last_name");

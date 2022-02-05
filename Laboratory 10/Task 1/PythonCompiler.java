@@ -7,8 +7,10 @@ public class PythonCompiler implements Compiler {
 
     @Override
     public void compile(File file) throws IOException {
+//        Открываем файл
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
         String line = bufferedReader.readLine();
+//        Считываем и переводим содержимое файла в обьектный код
         while (line != null) {
             System.out.println("Reading Python code...");
             System.out.println("Converting Python code to object code...");

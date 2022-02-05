@@ -13,13 +13,14 @@ public class DBChanger {
         this.fetcher = new DBFetcher(this.connection);
     }
 
+//    Метод переносит первую запись в конец
     public void transferFirstToLast(String day) throws SQLException {
 
         String insertQuery = "insert into schedule (id, id_teacher, id_subject, id_audience, id_day, students_quantity)\n" +
                             "values (\n" +
                             "(select max(rowid) from schedule)+1,?,?,?,?,?\n)";
         String deleteQuery = "delete from schedule where id = ?";
-
+//      Получаем первую запись
         HashMap<String, Integer> result = this.fetcher.getFirstScheduleByDay(day);
 
         System.out.println(result.toString());
@@ -33,9 +34,9 @@ public class DBChanger {
         insertStatement.setInt(3, result.get("id_audience"));
         insertStatement.setInt(4, result.get("id_day"));
         insertStatement.setInt(5, result.get("students_quantity"));
-
+//      Удаляем первую запись
         deleteStatement.executeUpdate();
-
+//      Записываем запись в конец
         insertStatement.executeUpdate();
 
         deleteStatement.close();

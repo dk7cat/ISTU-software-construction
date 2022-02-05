@@ -12,7 +12,7 @@ public class Expert {
         txt = new TxtWorker();
         xml = new XmlWorker();
     }
-
+//    Метод конвертирующий txt в xml
     public void convertTxtToXml(String txtPath, String xmlPath) throws IOException, TransformerException {
         ArrayList<String> article = txt.articleToList(txtPath);
         xml.readArticle(article);

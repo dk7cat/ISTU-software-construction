@@ -9,6 +9,7 @@ public class Task35 {
         String path = "Laboratory 3/Files/task35.txt";
         String longestNumber = "";
         StringBuilder currentNumber = new StringBuilder();
+//        Создаем обьект для чтения из файла
         try (FileReader reader = new FileReader(path)) {
 
             Pattern pattern = Pattern.compile("\\d+");
@@ -16,11 +17,12 @@ public class Task35 {
             Matcher spaceMatcher;
             Matcher matcher;
             int symbol;
+//            Читаем посимвольно
             while ((symbol = reader.read()) != -1) {
 
                 spaceMatcher = spacePattern.matcher(String.valueOf((char)symbol));
                 if (spaceMatcher.find()) {
-
+//                    Если находим число, проверяем не длинее ли оно текущего самого длинного числа
                     matcher = pattern.matcher(currentNumber.toString());
                     if (matcher.find() && currentNumber.toString().length() > longestNumber.length()) {
                         longestNumber = currentNumber.toString();
@@ -30,6 +32,7 @@ public class Task35 {
                 }
                 currentNumber.append((char)symbol);
             }
+//           Проверяем не длинее ли последнее число текущего самого длинного числа
             matcher = pattern.matcher(currentNumber.toString());
             if (matcher.find() && currentNumber.toString().length() > longestNumber.length()) {
                 longestNumber = currentNumber.toString();

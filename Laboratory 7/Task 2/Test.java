@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
+// POJO
 public class Test {
 
     @JsonProperty("id_patient")

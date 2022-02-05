@@ -16,17 +16,20 @@ public class Server {
 
 
     public void run() throws IOException {
+//        Создаем сокет
         serverSocket = new ServerSocket(port);
 
         System.out.println("Сервер запущен. Адрес = " + host + ", порт = " + port);
-
+//      Принимаем подключение
         socket = serverSocket.accept();
-
+//      Получаем данные
         receiveData();
-
+//      Отправляем ответ
         sendAnswer();
 
         System.out.println("Сервер завершил работу.");
+//      Закрываем сокет
+        serverSocket.close();
 
     }
 
@@ -34,8 +37,9 @@ public class Server {
 
 
         InputStream input = socket.getInputStream();
-
+//      Вход - канал сокета
         OutputStream output;
+//        Выход - файл
         try {
             output = new FileOutputStream(outputFile);
         } catch (FileNotFoundException e) {
@@ -44,6 +48,7 @@ public class Server {
         }
         System.out.println("Принимаю файл...");
         try {
+//            Получаем данные из канала и записываем в файл
             int symbol;
             while ((symbol = input.read()) != -1) {
                 output.write(symbol);
@@ -61,14 +66,14 @@ public class Server {
     }
 
     public void sendAnswer() throws IOException {
-
-
+//      Получаем рубаи
         String rubaiyat = getRubaiyat();
-
+//      Принимаем подключение
         socket = serverSocket.accept();
 
         System.out.println("Отправляю рубаи...");
         PrintStream printStream = new PrintStream(socket.getOutputStream());
+//        Отправляем рубаи
         printStream.print(rubaiyat);
         printStream.flush();
         System.out.println("Рубаи отправлен...");
@@ -82,10 +87,12 @@ public class Server {
         BufferedReader reader = new BufferedReader(fr);
         String line = reader.readLine();
         ArrayList<String> list = new ArrayList<>();
+//        Записываем содержимое файла в список
         while (line != null) {
             list.add(line);
             line = reader.readLine();
         }
+//        Получаем случайный элемент списка
         int randomIndex = new Random().nextInt(list.toArray().length);
         System.out.println("Рубаи выбран.");
         return list.get(randomIndex);

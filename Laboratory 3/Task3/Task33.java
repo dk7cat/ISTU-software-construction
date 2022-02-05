@@ -8,11 +8,13 @@ public class Task33 {
     public static void main(String[] args) {
         String path = "Laboratory 3/Files/task33.csv";
         int counter = 0;
+//        Создаем обьект для чтения из файла
         try (FileReader reader = new FileReader(path)) {
 
             int symbol;
+//                Читаем файл по символьно
             while ((symbol = reader.read()) != -1) {
-
+//              Считаем количество элементов
                 if (symbol == 44) {
 
                     counter += 1;
@@ -27,25 +29,23 @@ public class Task33 {
             e.printStackTrace();
         }
         int[][] numbersArray = new int[counter][counter];
+//        Создаем обьект для чтения из файла
         try (FileReader reader = new FileReader(path)) {
 
-            Pattern commaPattern = Pattern.compile(",");
-            Pattern newLinePattern = Pattern.compile("\\s");
             StringBuilder number = new StringBuilder();
             int rowCounter = 0, columnCounter = 0;
             int symbol;
+//            Читаем файл по символьно
             while ((symbol = reader.read()) != -1) {
 
-                Matcher commaMatcher = commaPattern.matcher(String.valueOf((char) symbol));
-                Matcher newLineMatcher = newLinePattern.matcher(String.valueOf((char) symbol));
                 if (symbol == 44) {
-
+//                    Если запятая, вставляем число и переходим на столбик вперед
                     numbersArray[rowCounter][columnCounter] = Integer.parseInt(number.toString());
                     columnCounter += 1;
                     number = new StringBuilder();
                     continue;
                 } else if (symbol == 13) {
-
+//                    Если перевод каретки, вставляем число и переходим на строку вперед, обнуляя счетчик столбцов
                     numbersArray[rowCounter][columnCounter] = Integer.parseInt(number.toString());
                     columnCounter = 0;
                     rowCounter += 1;
@@ -61,6 +61,7 @@ public class Task33 {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+//        Вывод исходной матрицы
         for (int[] numbers: numbersArray) {
 
             for (int number: numbers) {
@@ -69,6 +70,7 @@ public class Task33 {
             }
             System.out.println();
         }
+//        Транспонирование матрицы
         for(int i = 0; i < numbersArray.length; i++) {
 
             for(int j = 0; j < numbersArray[i].length; j++) {
@@ -83,6 +85,7 @@ public class Task33 {
             }
         }
         System.out.println();
+//        Вывод транспонированной матрицы
         for (int[] numbers: numbersArray) {
 
             for (int number: numbers) {

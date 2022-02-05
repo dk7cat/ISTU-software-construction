@@ -11,20 +11,21 @@ public class Client {
     Socket socket;
 
     public void run() throws IOException {
+//        Создаем сокет
         socket = new Socket(host, port);
         System.out.println("Клиент запущен. Адрес = " + host + ", порт = " + port);
 
         Scanner scanner = new Scanner(System.in);
-
+//      Открываем файл
         File file = new File(scanner.nextLine());
-
+//      Отправляем файл
         sendFile(file);
-
+//      Получаем ответ
         receiveAnswer();
     }
 
     public void sendFile(File file) throws IOException {
-
+//      Вход - файл
         InputStream input;
         try {
             input = new FileInputStream(file);
@@ -32,7 +33,7 @@ public class Client {
             e.printStackTrace();
             return;
         }
-
+//      Выход - канал сокета
         OutputStream output;
         try {
             output = socket.getOutputStream();
@@ -42,6 +43,7 @@ public class Client {
         }
         System.out.println("Отправляю файл...");
         try {
+//            Считываем файл и записываем в канал сокета
             int symbol;
             while ((symbol = input.read()) != -1) {
                 output.write(symbol);
@@ -51,6 +53,7 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
+//        Закрываем файл и вывод в сокет
         finally {
             input.close();
             output.close();
@@ -59,13 +62,16 @@ public class Client {
     }
 
     public void receiveAnswer() throws IOException {
+//        Создаем сокет
         socket = new Socket(host, port);
         System.out.println("Соединение установлено!");
         System.out.println("Получаю ответ от сервера...\n");
+//        Получаем данные из сокета
         BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         System.out.println(br.readLine());
         System.out.println("Ответ получен.\n");
         System.out.println("\nОтключение...");
+//        Закрываем сокет
         socket.close();
     }
 }
